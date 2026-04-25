@@ -1,0 +1,378 @@
+.hire-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.hire-modal-content {
+  display: flex;
+  width: 90%;
+  max-width: 900px;
+  height: 80vh;
+  max-height: 600px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hire-modal-left {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f0f;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.hire-modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  width: auto;
+  height: auto;
+}
+
+.hire-modal-right {
+  flex: 0.8;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.hire-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.hire-modal-close:hover {
+  opacity: 1;
+}
+
+.hire-modal-right h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 26px;
+  margin-top: 20px;
+}
+
+.hire-modal-title {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.hire-modal-title.fade-out {
+  animation: fadeOutCircle 0.5s ease-in-out forwards;
+}
+
+.hire-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.hire-modal-form.fade-out {
+  animation: fadeOutCircle 0.5s ease-in-out forwards;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 12px;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #c481ff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.hire-modal-submit {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #c481ff, #7f40ff);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 8px;
+}
+
+.hire-modal-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(196, 129, 255, 0.4);
+}
+
+.hire-modal-success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.success-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.5s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.success-checkmark {
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-in-out 0.3s forwards;
+  opacity: 0;
+}
+
+.hire-modal-success h3 {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  animation: slideUp 0.5s ease-in-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  padding: 0 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutCircle {
+  from {
+    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+  to {
+    opacity: 0;
+    clip-path: circle(0% at 50% 50%);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .hire-modal-content {
+    width: 95%;
+    max-width: 800px;
+    height: 85vh;
+    max-height: 550px;
+  }
+
+  .hire-modal-left {
+    min-height: 280px;
+    padding: 15px;
+    flex: 1.4;
+  }
+
+  .hire-modal-right {
+    padding: 20px;
+    flex: 0.6;
+  }
+
+  .hire-modal-right h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .hire-modal-form {
+    gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hire-modal-content {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 95%;
+    max-width: 500px;
+  }
+
+  .hire-modal-left {
+    padding: 15px;
+    max-height: 300px;
+    min-height: 250px;
+    flex: none;
+  }
+
+  .hire-modal-image {
+    max-height: 280px;
+  }
+
+  .hire-modal-right {
+    padding: 18px;
+    min-height: auto;
+    flex: none;
+  }
+
+  .hire-modal-right h2 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 12px;
+  }
+
+  .hire-modal-form {
+    gap: 10px;
+  }
+
+  .hire-modal-success h3 {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  .success-circle {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+
+  .success-checkmark {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hire-modal-content {
+    width: 95%;
+    max-width: 400px;
+    max-height: 95vh;
+  }
+
+  .hire-modal-left {
+    padding: 10px;
+    max-height: 250px;
+    min-height: 200px;
+    flex: none;
+  }
+
+  .hire-modal-image {
+    max-height: 230px;
+  }
+
+  .hire-modal-right {
+    padding: 15px;
+    flex: none;
+  }
+
+  .hire-modal-right h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .hire-modal-form {
+    gap: 8px;
+  }
+
+  .hire-modal-success h3 {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .success-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .success-checkmark {
+    font-size: 30px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .hire-modal-submit {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+}
